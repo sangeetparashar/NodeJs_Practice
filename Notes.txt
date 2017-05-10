@@ -1,0 +1,7 @@
+SangeetHello $user.usernameHello Sangeet
+Hello Sangeet
+Hello Sangeet. You are 25
+Hello Sangeet. You are undefined
+Hello Sangeet. You are undefined
+Hello Sangeet. You are undefined
+Hello Sangeet. You are undefined
