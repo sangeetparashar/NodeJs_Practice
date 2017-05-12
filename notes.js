@@ -1,6 +1,7 @@
 console.log('Staring notes.js');
 
 const fs = require('fs');
+const _ = require('lodash');
 
 var fetchNotes = () => {
     try {
@@ -42,7 +43,11 @@ var readNote = (title) => {
 }
 
 var removeNote = (title) => {
-    console.log("Removing title: ", title);
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter((note) => note.title !== title);
+    saveNotes(filteredNotes);  
+
+    return notes.length !== filteredNotes.length;
 }
 
 
