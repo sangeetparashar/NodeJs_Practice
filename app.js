@@ -29,11 +29,18 @@ const argv = yargs.argv;
 
 var command = process.argv[2];
 console.log('Command: ', command);
-console.log('Process', process.argv); //argv = arguments vector
+//console.log('Process', process.argv); //argv = arguments vector
 console.log('Yargs', argv);
 
 if (command === 'add') {
-    notes.addNote(argv.title, argv.body);
+    var note = notes.addNote(argv.title, argv.body);
+    if (note === undefined) {
+        console.log("There already exists a note with that title");
+    }
+    else {
+        console.log(`A new note with the title "${note.title}" was created`);
+        console.log(`The body of the note is: "${note.body}`);
+    }
 }
 else if (command === 'list') {
     notes.getAll();
