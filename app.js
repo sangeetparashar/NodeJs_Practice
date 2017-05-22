@@ -32,6 +32,8 @@ console.log('Command: ', command);
 //console.log('Process', process.argv); //argv = arguments vector
 console.log('Yargs', argv);
 
+
+
 if (command === 'add') {
     var note = notes.addNote(argv.title, argv.body);
     if (note === undefined) {
@@ -39,14 +41,21 @@ if (command === 'add') {
     }
     else {
         console.log(`A new note with the title "${note.title}" was created`);
-        console.log(`The body of the note is: "${note.body}`);
+        notes.logNote(note);
     }
 }
 else if (command === 'list') {
     notes.getAll();
 }
 else if (command === 'read') {
-    notes.readNote(argv.title);
+    var note = notes.readNote(argv.title);
+    if (note === undefined) {
+        console.log("There is no note with that title!");
+    }
+    else {
+        console.log(`A note with the title "${note.title}" was found.`)
+        notes.logNote(note);  
+    }
 }
 else if (command === 'remove') {
     var removed = notes.removeNote(argv.title);
