@@ -35,7 +35,7 @@ var addNote = (title, body) => {
 
 };
 var getAll = () => {
-    console.log("Getting all notes");
+    return fetchNotes();
 }
 
 var readNote = (title) => {
@@ -54,8 +54,9 @@ var removeNote = (title) => {
 
 var logNote = (note) => {
     debugger;
-    console.log("-----------------------");
-    console.log(`The body of the note is: \n`);
+    console.log("--------------");
+    console.log(`Title: ${note.title}`);
+    console.log(`Body:`);
     console.log(`${note.body}`);
 }
 

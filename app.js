@@ -1,4 +1,3 @@
-console.log("Hello world");
 const fs = require('fs');
 const os = require('os');
 const user = os.userInfo();
@@ -28,9 +27,7 @@ const notes = require('./notes.js');
 const argv = yargs.argv;
 
 var command = process.argv[2];
-console.log('Command: ', command);
 //console.log('Process', process.argv); //argv = arguments vector
-console.log('Yargs', argv);
 
 
 
@@ -45,7 +42,9 @@ if (command === 'add') {
     }
 }
 else if (command === 'list') {
-    notes.getAll();
+    var list = notes.getAll();
+    console.log(`Printing ${list.length} note(s)`);
+    list.forEach((note) => notes.logNote(note));
 }
 else if (command === 'read') {
     var note = notes.readNote(argv.title);
