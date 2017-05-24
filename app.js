@@ -1,6 +1,6 @@
 const fs = require('fs');
-const os = require('os');
-const user = os.userInfo();
+//const os = require('os');
+//const user = os.userInfo();
 const _ = require('lodash');
 var yargs = require('yargs');
 
@@ -24,7 +24,31 @@ const notes = require('./notes.js');
 
 
 //we are about to create a nodeapp that gets user input inside the command line
-const argv = yargs.argv;
+var titleOptions = {
+    describe: 'Title of note',
+    demand: true,
+    alias: 't'
+};
+var bodyOptions = {
+    describe: 'Body of note',
+    demand: true,
+    alias: 'b'
+};
+const argv = yargs
+    .command('add', 'Add a new note', {
+        title: titleOptions,
+        body: bodyOptions
+    })
+    .command('read', 'read the note that was specified', {
+        title: titleOptions
+        
+    })
+    .command('list', 'list all notes')
+    .command('remove', 'remove the note with the title provided', {
+        title: titleOptions
+    })
+    .help() //sets up yargs to return useful info when the command is ran
+    .argv;
 
 var command = process.argv[2];
 //console.log('Process', process.argv); //argv = arguments vector
