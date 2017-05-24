@@ -5,4 +5,4 @@ The app creates JSON objects so they can be easily read and manipulated.
 The commands are written in the command line.
 Use the app.js file to run the application.
 
-Just messing around - learning Node's intricasies of Node.
+Just messing around - learning the intricasies of NodeJS.
